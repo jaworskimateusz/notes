@@ -3,61 +3,34 @@
  	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.jaworskimateusz</groupId>
-	<artifactId>notes</artifactId>
+	<groupId>com.luv2code</groupId>
+	<artifactId>spring-security-demo</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
-	<name>notes</name>
+
+	<name>spring-security-demo</name>
 
 	<properties>
-		<springframework.version>5.1.1.RELEASE</springframework.version>
-		<springsecurity.version>5.1.1.RELEASE</springsecurity.version>
+		<springframework.version>5.0.2.RELEASE</springframework.version>
+
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
 	<dependencies>
 
+		<!-- Spring MVC support -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
-				
-		<dependency>
-			<groupId>com.mchange</groupId>
-			<artifactId>c3p0</artifactId>
-			<version>0.9.5.2</version>
-		</dependency>
-		
-		<dependency>
-		    <groupId>mysql</groupId>
-		    <artifactId>mysql-connector-java</artifactId>
-		    <version>8.0.11</version>
-		</dependency>
 
+		<!-- Servlet, JSP and JSTL support -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
-		</dependency>
-		
-		<dependency>
-		  <groupId>org.springframework.security</groupId>
-		  <artifactId>spring-security-web</artifactId>
-		  <version>${springsecurity.version}</version>
-		</dependency>
-		
-		<dependency>
-		  <groupId>org.springframework.security</groupId>
-		  <artifactId>spring-security-config</artifactId>
-		  <version>${springsecurity.version}</version>
-		</dependency>
-		
-		<dependency>
-		  <groupId>org.springframework.security</groupId>
-		  <artifactId>spring-security-taglibs</artifactId>
-		  <version>${springsecurity.version}</version>
 		</dependency>
 
 		<dependency>
@@ -81,11 +54,13 @@
 
 	</dependencies>
 
+	<!-- Add support for Maven WAR Plugin -->
 	<build>
-		<finalName>notes</finalName>
+		<finalName>spring-security-demo</finalName>
 		<pluginManagement>
 			<plugins>
 				<plugin>
+					<!-- Add Maven coordiantes for: maven-war-plugin -->
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-war-plugin</artifactId>
 					<version>2.6</version>
