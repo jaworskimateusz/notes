@@ -1,6 +1,7 @@
 package com.jaworskimateusz.config;
 
 import java.beans.PropertyVetoException;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
@@ -20,7 +23,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @EnableWebMvc
 @ComponentScan(basePackages="com.jaworskimateusz")
 @PropertySource("classpath:persistence-mysql.properties")
-public class ApplicationConfig {
+public class ApplicationConfig implements WebMvcConfigurer {
 
 	@Autowired
 	private Environment env;
@@ -57,5 +60,12 @@ public class ApplicationConfig {
 		viewResolver.setSuffix(".jsp");
 		return viewResolver;
 	}
+	
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry
+          .addResourceHandler("/resources/**")
+          .addResourceLocations("/resources/"); 
+    }
 	
 }
