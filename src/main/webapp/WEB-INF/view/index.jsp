@@ -9,6 +9,7 @@
     <meta name="author" content="">
 
     <title>Notes</title>
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/img/pen-icon.png" type="image/png">
 
     <!-- Bootstrap core CSS -->
     <link href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
