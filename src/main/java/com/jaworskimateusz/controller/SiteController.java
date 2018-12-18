@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class HelloController {
+public class SiteController {
 	
 	@GetMapping("/index")
 	public String showIndexPage() {
@@ -19,6 +19,11 @@ public class HelloController {
 	@GetMapping("/registration")
 	public String showRegistrationPage() {
 		return "registration";
+	}
+	
+	@GetMapping("/login")
+	public String showLoginPage() {
+		return "login";
 	}
 	
 }

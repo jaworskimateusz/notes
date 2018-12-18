@@ -94,14 +94,14 @@
             <div class="control-group">
               <div class="form-group col-xs-12 floating-label-form-group controls">
                 <label>Password</label>
-                <input type="tel" class="form-control" placeholder="Password" id="phone" required data-validation-required-message="Please enter your password.">
+                <input type="password" class="form-control" placeholder="Password" id="phone" required data-validation-required-message="Please enter your password.">
                 <p class="help-block text-danger"></p>
               </div>
             </div>
 			<div class="control-group">
               <div class="form-group col-xs-12 floating-label-form-group controls">
                 <label>Confirm Password</label>
-                <input type="tel" class="form-control" placeholder="Confirm Password" id="phone" required data-validation-required-message="Please confirm your password">
+                <input type="password" class="form-control" placeholder="Confirm Password" id="phone" required data-validation-required-message="Please confirm your password">
                 <p class="help-block text-danger"></p>
               </div>
             </div>
