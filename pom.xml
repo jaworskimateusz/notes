@@ -12,6 +12,7 @@
 	<properties>
 		<springframework.version>5.1.1.RELEASE</springframework.version>
 		<springsecurity.version>5.1.1.RELEASE</springsecurity.version>
+		<hibernate.core.version>5.3.7.Final</hibernate.core.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
@@ -58,6 +59,12 @@
 		  <groupId>org.springframework.security</groupId>
 		  <artifactId>spring-security-taglibs</artifactId>
 		  <version>${springsecurity.version}</version>
+		</dependency>
+		
+		<dependency>
+		   <groupId>org.hibernate</groupId>
+		   <artifactId>hibernate-core</artifactId>
+		   <version>${hibernate.core.version}</version>
 		</dependency>
 
 		<dependency>
