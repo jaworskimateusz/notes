@@ -16,11 +16,6 @@ public class SiteController {
 		return "about";
 	}
 	
-	@GetMapping("/registration")
-	public String showRegistrationPage() {
-		return "registration";
-	}
-	
 	@GetMapping("/login")
 	public String showLoginPage() {
 		return "login";
