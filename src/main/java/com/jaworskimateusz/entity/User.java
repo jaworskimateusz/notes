@@ -9,7 +9,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -19,7 +18,7 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="user_id")
+	@Column(name="id")
 	private int id;
 	
 	@Column(name="name")
@@ -31,8 +30,8 @@ public class User {
 	@Column(name="password")
 	private String password;
 	
-	@OneToMany(fetch=FetchType.LAZY ,cascade={CascadeType.ALL})
-	@JoinColumn(name="note_id")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="users",
+			cascade={CascadeType.ALL})
 	private Collection<Note> notes;
 	
 	public User() {
@@ -87,7 +86,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", notes=" + notes
+		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password= ******* "  + ", notes=" + notes
 				+ "]";
 	}
 		
