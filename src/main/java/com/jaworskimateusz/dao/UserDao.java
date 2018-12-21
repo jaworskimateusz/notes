@@ -2,7 +2,7 @@ package com.jaworskimateusz.dao;
 
 import com.jaworskimateusz.entity.User;
 
-public interface UserDAO {
+public interface UserDao {
 	
 	public void save(User user);
 	

@@ -16,9 +16,4 @@ public class SiteController {
 		return "about";
 	}
 	
-	@GetMapping("/login")
-	public String showLoginPage() {
-		return "login";
-	}
-	
 }

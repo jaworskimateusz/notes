@@ -37,13 +37,6 @@ public class User {
 	public User() {
 	}
 
-	public User(String name, String email, String password, Collection<Note> notes) {
-		this.name = name;
-		this.email = email;
-		this.password = password;
-		this.notes = notes;
-	}
-
 	public int getId() {
 		return id;
 	}
