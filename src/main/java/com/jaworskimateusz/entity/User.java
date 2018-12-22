@@ -30,7 +30,7 @@ public class User {
 	@Column(name="password")
 	private String password;
 	
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="users",
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="user",
 			cascade={CascadeType.ALL})
 	private Collection<Note> notes;
 	
