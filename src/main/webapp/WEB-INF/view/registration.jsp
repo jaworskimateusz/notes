@@ -90,28 +90,28 @@
               <div class="form-group floating-label-form-group controls">
                 <label>Name</label>
             	<form:input path="name" class="form-control" placeholder="Name"/>
-                <p class="help-block text-danger"></p>
+                <form:errors path="name" class="help-block text-danger"/>
               </div>
             </div>
             <div class="control-group">
               <div class="form-group floating-label-form-group controls">
                 <label>Email Address</label>
                 <form:input path="email" class="form-control" placeholder="Email Address"/>
-                <p class="help-block text-danger"></p>
+                <form:errors path="email" class="help-block text-danger"/>
               </div>
             </div>
             <div class="control-group">
               <div class="form-group col-xs-12 floating-label-form-group controls">
                 <label>Password</label>
                 <form:password path="password" class="form-control" placeholder="Password"/>
-                <p class="help-block text-danger"></p>
+                <form:errors path="password" class="help-block text-danger"/>
               </div>
             </div>
 			<div class="control-group">
               <div class="form-group col-xs-12 floating-label-form-group controls">
                 <label>Confirm Password</label>
                 <form:password path="confirmedPassword" class="form-control" placeholder="Confirm Password" />
-                <p class="help-block text-danger"></p>
+                <form:errors path="confirmedPassword" class="help-block text-danger"/>
               </div>
             </div>
             <br>

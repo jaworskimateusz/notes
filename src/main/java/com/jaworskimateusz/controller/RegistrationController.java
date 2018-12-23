@@ -36,8 +36,8 @@ public class RegistrationController {
 	
 	@PostMapping("/process-registration")
 	public String processRegistration(@Valid @ModelAttribute("newUser") NewUser newUser,
-			Model model,
-			BindingResult bindingResult) {
+			BindingResult bindingResult,
+			Model model) {
 		if(bindingResult.hasErrors()) {
 			return "registration";
 		}

@@ -9,16 +9,26 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-@Constraint(validatedBy=EmailValidator.class)
-@Target({ElementType.FIELD, ElementType.ANNOTATION_TYPE})
+@Constraint(validatedBy=FieldConfirmValidator.class)
+@Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface VerifyEmail {
+public @interface FieldConfirm {
 	
-	public String message() default "Invalid email.";
+	public String message() default "Fields should be the same.";
 	
 	public Class<?>[] groups() default {};
 	
 	public Class<? extends Payload>[] payload() default {};
-
+	
+	public String password();
+	
+	public String confirmedPassword();
+	
+	@Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
+    @Retention(RetentionPolicy.RUNTIME)
+    @Documented
+    public @interface List{
+		public FieldConfirm[] value();
+    }
 }

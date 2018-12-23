@@ -3,23 +3,23 @@ package com.jaworskimateusz.validation;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+@FieldConfirm.List({
+	@FieldConfirm(password="password", confirmedPassword="confirmedPassword", message="Passwords must match." )})
 public class NewUser {
 	
-	@NotNull(message="required")
-	@Size(min=1, message="required")
+	@NotNull(message="Name is required.")
+	@Size(max=50, message="Name must contain less than 50 characters.")
 	private String name;
 	
 	@VerifyEmail
-	@NotNull(message="required")
-	@Size(min=1, message="required")
+	@Size(max=50, message="Email must contain less than 50 characters.")
 	private String email;
 	
-	@NotNull(message="required")
-	@Size(min=1, message="required")
+	@NotNull(message="Password is required.")
+	@Size(min=6, message="Password must contain minimum 6 characters.")
+	@Size(max=80, message="Name must contain less than 80 characters.")
 	private String password;
 	
-	@NotNull(message="required")
-	@Size(min=1, message="required")
 	private String confirmedPassword;
 	
 	public NewUser() {
