@@ -9,7 +9,7 @@ public class NewUser {
 	@Size(min=1, message="required")
 	private String name;
 	
-	//here create custom validEmail annotation
+	@VerifyEmail
 	@NotNull(message="required")
 	@Size(min=1, message="required")
 	private String email;
