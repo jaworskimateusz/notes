@@ -49,7 +49,7 @@
               <a class="nav-link" href="registration">Registration</a>
             </li>
 			<li class="nav-item">
-              <a class="nav-link" href="login">Login</a>
+              <a class="nav-link btn-outline-secondary" href="login">Login</a>
             </li>
           </ul>
         </div>

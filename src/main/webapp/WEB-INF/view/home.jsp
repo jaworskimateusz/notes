@@ -1,17 +1,15 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE html>
 <html lang="en">
 
   <head>
 
-	<title>Notes</title>
-    <link rel="icon" href="${pageContext.request.contextPath}/resources/img/pen-icon.png" type="image/png">
-    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+
+    <title>Notes</title>
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/img/pen-icon.png" type="image/png">
 
     <!-- Bootstrap core CSS -->
     <link href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -23,16 +21,16 @@
 
     <!-- Custom styles for this template -->
     <link href="${pageContext.request.contextPath}/resources/css/clean-blog.min.css" rel="stylesheet" type="text/css">
-
+    
   </head>
 
   <body>
-
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
+		
         <a class="navbar-brand" href="index">
-			<img src="${pageContext.request.contextPath}/resources/img/pen-icon.png"/>
+			<img src="${pageContext.request.contextPath}/resources/img/pen-icon.png"></img>
 			Notes
 		</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,70 +57,21 @@
     </nav>
 
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('${pageContext.request.contextPath}/resources/img/registration-bg.jpg')">
+    <header class="masthead" style="background-image: url('${pageContext.request.contextPath}/resources/img/notes-home-bg-sm.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="page-heading">
-              <h1>Registration</h1>
-              <span class="subheading">Make an account to use it for free.</span>
+            <div class="site-heading">
+              <h1>Home</h1>
+              <span class="subheading">Keep your important things in one place.</span>
             </div>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- Main Content -->
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <p>
-          Please fill all fields. 
-          <c:if test="${registrationError != null}">
-			<div class="alert alert-danger">
-				${registrationError}
-			</div>
-		  </c:if>
-          </p>
-          <form:form action="${pageContext.request.contextPath}/process-registration" modelAttribute="newUser">
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls">
-                <label>Name</label>
-            	<form:input path="name" class="form-control" placeholder="Name"/>
-                <form:errors path="name" class="help-block text-danger"/>
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls">
-                <label>Email Address</label>
-                <form:input path="email" class="form-control" placeholder="Email Address"/>
-                <form:errors path="email" class="help-block text-danger"/>
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="form-group col-xs-12 floating-label-form-group controls">
-                <label>Password</label>
-                <form:password path="password" class="form-control" placeholder="Password"/>
-                <form:errors path="password" class="help-block text-danger"/>
-              </div>
-            </div>
-			<div class="control-group">
-              <div class="form-group col-xs-12 floating-label-form-group controls">
-                <label>Confirm Password</label>
-                <form:password path="confirmedPassword" class="form-control" placeholder="Confirm Password" />
-                <form:errors path="confirmedPassword" class="help-block text-danger"/>
-              </div>
-            </div>
-            <br>
-            <div id="success"></div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary" id="sendMessageButton">Register</button>
-            </div>
-          </form:form>
-        </div>
-      </div>
-    </div>
+	<h1>HOME PAGE</h1>    
 
     <hr>
 
@@ -162,10 +111,6 @@
         </div>
       </div>
     </footer>
-
-    <!-- Contact Form JavaScript -->
-    <script src="${pageContext.request.contextPath}/resources/js/jqBootstrapValidation.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/js/contact_me.js"></script>
 
     <!-- Bootstrap core JavaScript -->
     <script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.min.js"></script>

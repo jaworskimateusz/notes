@@ -27,7 +27,7 @@ public class UserAuthenticationSuccessHandler implements AuthenticationSuccessHa
 		User user = userService.findByEmail(authentication.getName());
 		HttpSession session = request.getSession();
 		session.setAttribute("user", user);
-		response.sendRedirect(request.getContextPath() + "/");
+		response.sendRedirect(request.getContextPath() + "/home");
 	}
 
 }
