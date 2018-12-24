@@ -37,7 +37,7 @@
 				<form:form action="${pageContext.request.contextPath}/authenticate-user" method="POST" class="login100-form validate-form p-b-33 p-t-5">
 					<c:if test="${param.error != null}">
 						<div class="alert alert-dark col-xs-offset-1 col-xs-10 mx-4 mt-3 text-center">
-							<p>Invalid email and password.</p>
+							<p>Invalid username and password.</p>
 						</div>
 					</c:if>
 					<c:if test="${param.logout != null}">
@@ -45,8 +45,8 @@
 							<p>You have been logged out.</p>
 						</div>
 					</c:if>
-					<div class="wrap-input100 validate-input" data-validate = "Enter email">
-						<input class="input100" type="text" name="email" placeholder="Email">
+					<div class="wrap-input100 validate-input" data-validate = "Enter Username">
+						<input class="input100" type="text" name="username" placeholder="Userame">
 						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
 					</div>
 

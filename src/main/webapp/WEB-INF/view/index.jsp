@@ -40,7 +40,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index">Home</a>
+              <a class="nav-link" href="index">Main</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about">About</a>
@@ -49,7 +49,7 @@
               <a class="nav-link" href="registration">Registration</a>
             </li>
 			<li class="nav-item">
-              <a class="nav-link btn-outline-secondary" href="login">Login</a>
+              <a class="nav-link" href="login">Login</a>
             </li>
           </ul>
         </div>

@@ -7,17 +7,18 @@ DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` char(80) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
-
-INSERT INTO `users` (name, email, password)
+-- password: mateusz
+-- password: donjoe
+INSERT INTO `users` (username, email, password)
 VALUES 
-('mateusz','mateusz@email.com', 'mateusz'),
-('don', 'don.joe@email.com', 'don');
+('mateusz','mateusz@email.com', '$2a$10$wnTAd4mvHizJnqPGVAJZJ.AT193MeEnrX1NuftHZl5scly43tHSlu'),
+('don', 'don.joe@email.com', '$2a$10$CNHBzKMUgLxzpyRDrX3nv.RAPBK89mx4uBi97Ve4cF9r9l8UBdLr2');
 
 DROP TABLE IF EXISTS `notes`;
 
@@ -39,3 +40,39 @@ INSERT INTO `notes` (title, content, modification_date, priority, user_id)
 VALUES 
 ('Do the workout', 'Chest, shoulders, back...', now(), null, 1);
 
+DROP TABLE IF EXISTS `roles`;
+
+CREATE TABLE `roles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT "USER",
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+INSERT INTO `roles` (name)
+VALUES ("USER"),("ADMIN");
+
+DROP TABLE IF EXISTS `users_roles`;
+
+CREATE TABLE `users_roles` (
+  `user_id` int(11) NOT NULL,
+  `role_id` int(11) NOT NULL,
+  
+  PRIMARY KEY (`user_id`,`role_id`),
+  KEY `FK_ROLE_idx` (`role_id`),
+
+  CONSTRAINT `FK_USER` FOREIGN KEY (`user_id`) 
+  REFERENCES `users` (`id`) 
+  ON DELETE NO ACTION ON UPDATE NO ACTION,
+  
+  CONSTRAINT `FK_ROLE` FOREIGN KEY (`role_id`) 
+  REFERENCES `roles` (`id`) 
+  ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+INSERT INTO `users_roles` (user_id,role_id)
+VALUES 
+(1, 1),
+(1, 2),
+(2, 1);

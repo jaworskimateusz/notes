@@ -21,11 +21,11 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public User findByEmail(String email) {
+	public User findByName(String name) {
 		Session session = sessionFactory.getCurrentSession();
-		Query<User> query = session.createQuery("FROM User WHERE email=:email", User.class);
+		Query<User> query = session.createQuery("FROM User WHERE userName=:name", User.class);
 		User user = null;
-		query.setParameter("email", email);
+		query.setParameter("name", name);
 		try {
 			user = query.getSingleResult();
 		} catch(Exception e) {

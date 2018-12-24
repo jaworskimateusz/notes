@@ -9,13 +9,14 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.jaworskimateusz.service.UserService;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
+	
 	@Autowired
 	private UserService userService;
 	
@@ -31,24 +32,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public DaoAuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
 		auth.setUserDetailsService(userService);
+		auth.setPasswordEncoder(passwordEncoder());
 		return auth;
 	}
-
+	
+	@Bean
+	public BCryptPasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
-			.and()
-			.formLogin()
-			.loginPage("/login")
-			.loginProcessingUrl("/authenticate-user")
-			.successHandler(userAuthenticationSuccessHandler)
-			.permitAll()
-			.and()
-			.logout()
-			.permitAll()
-			.and()
-			.exceptionHandling()
-			.accessDeniedPage("/");
+		http.authorizeRequests().antMatchers("/").hasRole("USER")
+		.antMatchers("/configure").hasRole("ADMIN").and()
+		.formLogin().loginPage("/login").loginProcessingUrl("/authenticate-user")
+		.successHandler(userAuthenticationSuccessHandler).permitAll().and()
+		.logout().permitAll().and()
+		.exceptionHandling().accessDeniedPage("/access-denied");
 	}
 
 }

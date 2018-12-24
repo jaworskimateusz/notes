@@ -42,9 +42,9 @@ public class RegistrationController {
 			return "registration";
 		}
 		
-		if(userService.findByEmail(newUser.getEmail()) != null) {
+		if(userService.findByName(newUser.getUserName()) != null) {
 			model.addAttribute("newUser", new NewUser());
-			model.addAttribute("registrationError", "User email is already exists.");
+			model.addAttribute("registrationError", "User is already exists.");
 			return "registration";
 		}
 		

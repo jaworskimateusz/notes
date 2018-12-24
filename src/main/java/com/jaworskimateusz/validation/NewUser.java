@@ -9,7 +9,7 @@ public class NewUser {
 	
 	@NotNull(message="Name is required.")
 	@Size(max=50, message="Name must contain less than 50 characters.")
-	private String name;
+	private String userName;
 	
 	@VerifyEmail
 	@Size(max=50, message="Email must contain less than 50 characters.")
@@ -26,12 +26,12 @@ public class NewUser {
 		
 	}
 
-	public String getName() {
-		return name;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getEmail() {
@@ -60,7 +60,7 @@ public class NewUser {
 
 	@Override
 	public String toString() {
-		return "NewUser [name=" + name + ", email=" + email + ", password= ***** " + ", confirmedPassword= ***** ]";
+		return "NewUser [userName=" + userName + ", email=" + email + ", password= ***** " + ", confirmedPassword= ***** ]";
 	}
 
 }

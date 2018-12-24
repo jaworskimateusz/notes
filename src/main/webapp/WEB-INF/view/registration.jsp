@@ -42,7 +42,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index">Home</a>
+              <a class="nav-link" href="index">Main</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about">About</a>
@@ -88,9 +88,9 @@
           <form:form action="${pageContext.request.contextPath}/process-registration" modelAttribute="newUser">
             <div class="control-group">
               <div class="form-group floating-label-form-group controls">
-                <label>Name</label>
-            	<form:input path="name" class="form-control" placeholder="Name"/>
-                <form:errors path="name" class="help-block text-danger"/>
+                <label>Username</label>
+            	<form:input path="userName" class="form-control" placeholder="Username"/>
+                <form:errors path="userName" class="help-block text-danger"/>
               </div>
             </div>
             <div class="control-group">
