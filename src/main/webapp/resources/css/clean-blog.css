@@ -16,7 +16,7 @@ p {
 }
 
 p a {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 h1,
@@ -33,6 +33,7 @@ a {
   color: #212529;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
+  text-decoration: none !important;
 }
 
 a:focus, a:hover {
@@ -307,7 +308,7 @@ header.masthead .post-heading .meta a {
 }
 
 .post-preview > .post-meta > a:focus, .post-preview > .post-meta > a:hover {
-  text-decoration: underline;
+  text-decoration: none;
   color: #0085A1;
 }
 
@@ -399,7 +400,7 @@ footer .copyright {
   padding: 15px 25px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  border-radius: 0;
+  border-radius: 1px;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -418,3 +419,10 @@ footer .copyright {
   font-size: 16px;
   padding: 25px 35px;
 }
+
+.btn-small {
+  padding: 3px 5px;
+  font-size: 8px;
+}
+
+

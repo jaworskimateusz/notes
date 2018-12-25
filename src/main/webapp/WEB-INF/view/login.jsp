@@ -41,7 +41,7 @@
 						</div>
 					</c:if>
 					<c:if test="${param.logout != null}">
-						<div class="alert alert-primary col-xs-offset-1 col-xs-10 mx-4 mt-3 text-center">
+						<div class="alert alert-info col-xs-offset-1 col-xs-10 mx-4 mt-3 text-center">
 							<p>You have been logged out.</p>
 						</div>
 					</c:if>

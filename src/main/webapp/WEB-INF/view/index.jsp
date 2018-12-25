@@ -28,7 +28,6 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-		
         <a class="navbar-brand" href="index">
 			<img src="${pageContext.request.contextPath}/resources/img/pen-icon.png"></img>
 			Notes

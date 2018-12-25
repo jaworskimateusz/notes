@@ -34,7 +34,7 @@ public class User {
 	@Column(name="password")
 	private String password;
 	
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="user",
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="user",
 			cascade={CascadeType.ALL})
 	private List<Note> notes;
 	
