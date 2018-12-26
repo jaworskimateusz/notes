@@ -62,9 +62,13 @@
 	           <img class="card-img-top" src="${pageContext.request.contextPath}/resources/img/note-bg.jpg" alt="note-img">
 	            <div class="card-body">
 	             <h3 class="card-title">
-	               ${note.title}
+	               ${note.title} 
 	             </h3>
 	             <p class="card-text"> ${note.content} </p>
+	           </div>
+	           <div class="row">
+	           <a href="" class="ml-3 mb-2 col-sm-1 ml-1 "><i class="fas fa-trash-alt"></i></a>
+	           <a href="" class="mb-2 col-sm-1 ml-1 "><i class="fas fa-edit"></i></a>
 	           </div>
 	         </div>
 	       </div>
