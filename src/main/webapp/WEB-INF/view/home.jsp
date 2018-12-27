@@ -56,7 +56,13 @@
 		Add new <i class=" ml-2 fas fa-plus"></i>
 	</button>
 	    <div class="row">
-	   	<c:forEach var="note" items="${user.notes}" >
+	   	<c:forEach var="note" items="${user.notes}">
+			<c:url var="updateNote" value="/home/edit-note">
+				<c:param name="noteId" value="${note.id}" />
+			</c:url>	
+			<c:url var="deleteNote" value="/home/delete-note">
+				<c:param name="noteId" value="${note.id}" />
+			</c:url>	       
 	       <div class="col-lg-4 col-sm-6 my-2">
 	         <div class="card h-100">
 	           <img class="card-img-top" src="${pageContext.request.contextPath}/resources/img/note-bg.jpg" alt="note-img">
@@ -67,8 +73,8 @@
 	             <p class="card-text"> ${note.content} </p>
 	           </div>
 	           <div class="row">
-	           <a href="" class="ml-3 mb-2 col-sm-1 ml-1 "><i class="fas fa-trash-alt"></i></a>
-	           <a href="" class="mb-2 col-sm-1 ml-1 "><i class="fas fa-edit"></i></a>
+	           <a href="${editNote}" class="ml-3 mb-2 col-sm-1 ml-1 "><i class="fas fa-edit"></i></a>
+	           <a href="${deleteNote}" class="mb-2 col-sm-1 ml-1" ><i class="fas fa-trash-alt"></i></a>
 	           </div>
 	         </div>
 	       </div>
