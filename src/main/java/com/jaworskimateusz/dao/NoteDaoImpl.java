@@ -15,8 +15,7 @@ public class NoteDaoImpl implements NoteDao {
 	
 	@Override
 	public void saveNote(Note note) {
-		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(note);
+		sessionFactory.getCurrentSession().saveOrUpdate(note);
 	}
 
 	@Override

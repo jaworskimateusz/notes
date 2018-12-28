@@ -29,5 +29,5 @@ public class UserAuthenticationSuccessHandler implements AuthenticationSuccessHa
 		session.setAttribute("user", user);
 		response.sendRedirect(request.getContextPath() + "/home");
 	}
-
+	
 }

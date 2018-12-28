@@ -25,13 +25,13 @@ DROP TABLE IF EXISTS `notes`;
 CREATE TABLE `notes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
-  `content` TEXT DEFAULT NULL,
+  `content` TEXT NOT NULL,
   `modification_date` TIMESTAMP NOT NULL,
   `priority` varchar(1) DEFAULT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_USER_idx` (`user_id`),
-  CONSTRAINT `FK_USERS`
+  CONSTRAINT `FK_USER`
   FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
   ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
@@ -63,8 +63,8 @@ CREATE TABLE `users_roles` (
   PRIMARY KEY (`user_id`,`role_id`),
   KEY `FK_ROLE_idx` (`role_id`),
 
-  CONSTRAINT `FK_USER` FOREIGN KEY (`user_id`) 
-  REFERENCES `users` (`id`) 
+  CONSTRAINT `FK_USER_01` FOREIGN KEY (`user_id`) 
+  REFERENCES `users` (`id`)
   ON DELETE NO ACTION ON UPDATE NO ACTION,
   
   CONSTRAINT `FK_ROLE` FOREIGN KEY (`role_id`) 
