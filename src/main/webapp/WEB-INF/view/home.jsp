@@ -50,7 +50,7 @@
     </nav>
 
     <div class="container mt-5"> <br>
-    <h1 class="my-4">Home Page</h1>    
+    <h1 class="my-3">Home Page</h1>    
 	<h2 class="mb-3">Welcome ${user.userName}, Let's make some notes!</h2>
 	<button class="btn btn-outline-dark rounded mb-3"> 
 		Add new <i class=" ml-2 fas fa-plus"></i>
@@ -74,7 +74,7 @@
 	           </div>
 	           <div class="row">
 	           <a href="${editNote}" class="ml-3 mb-2 col-sm-1 ml-1 "><i class="fas fa-edit"></i></a>
-	           <a href="${deleteNote}" class="mb-2 col-sm-1 ml-1" ><i class="fas fa-trash-alt"></i></a>
+	           <a href="${deleteNote}" class="mb-2 col-sm-1 ml-1" onclick="loaction.reload()" ><i class="fas fa-trash-alt"></i></a>
 	           </div>
 	         </div>
 	       </div>
