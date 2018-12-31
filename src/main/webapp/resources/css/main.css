@@ -82,6 +82,7 @@ input {
 textarea {
   outline: none;
   border: none;
+  min-height: 10rem;
 }
 
 textarea:focus, input:focus {
@@ -246,6 +247,19 @@ iframe {
   display: block;
   width: 100%;
   height: 50px;
+  background: transparent;
+  padding: 0 10px 0 80px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.radiobutton100 {
+  font-family: Ubuntu-Regular;
+  display: inline-block;
+  width: 30%;
+  height: 20px;
   background: transparent;
   padding: 0 10px 0 80px;
   -webkit-transition: all 0.4s;

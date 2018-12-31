@@ -52,7 +52,7 @@
     <div class="container mt-5"> <br>
     <h1 class="my-3">Home Page</h1>    
 	<h2 class="mb-3">Welcome ${user.userName}, Let's make some notes!</h2>
-	<button class="btn btn-outline-dark rounded mb-3"> 
+	<button class="btn btn-outline-dark rounded mb-3" onclick="location.href='${pageContext.request.contextPath}/home/add-note'"> 
 		Add new <i class=" ml-2 fas fa-plus"></i>
 	</button>
 	    <div class="row">

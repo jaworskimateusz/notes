@@ -22,7 +22,7 @@ public class NoteController {
 	@GetMapping("/add-note")
 	public String showFormForAdd(Model model) {
 		model.addAttribute("note", new Note());
-		return "add-form";
+		return "update-note";
 	}
 	
 	@PostMapping("/save-note")
