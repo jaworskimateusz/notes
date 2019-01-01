@@ -34,21 +34,24 @@
 				<span class="login100-form-title p-b-41">
 				Add/Edit note
 				</span>
-				<form:form action="${pageContext.request.contextPath}/save-note" method="POST" modelAttribute="note" class="login100-form validate-form p-b-33 p-t-5">
-					<div class="wrap-input100 validate-input" data-validate = "Enter Title">
-						<form:input path="title" class="input100" type="text" name="username" placeholder="Title"/>
-						<span class="focus-input100" data-placeholder="T">
+				<form:form action="${pageContext.request.contextPath}/home/save-note" method="POST" modelAttribute="note" class="login100-form validate-form p-b-33 p-t-5">
+					<div class="wrap-input100 validate-input" >
+						<form:input path="title" class="input100" type="text"  placeholder="Title"/>
+						<form:errors path="title" class="ml-5 help-block text-danger small"/>
+						<span class="focus-input100" data-placeholder="">
 						</span>
 					</div>
-					<div class="wrap-input100 validate-input" data-validate = "Enter Content">
-						<form:textarea path="content" class="input100" type="text" name="username" placeholder="Content"/>
-						<span class="focus-input100" data-placeholder="C"></span>
+					<div class="wrap-input100 validate-input" >
+						<form:textarea path="content" class="input100" type="text" placeholder="Content"/>
+						<form:errors path="content" class="ml-5 help-block text-danger small"/>
+						<span class="focus-input100" data-placeholder=""></span>
 					</div>
-					<div class="wrap-input100 validate-input" data-validate = "Check priority">
+					<div class="wrap-input100 validate-input" >
 						<span class="input100">Set high/low priority
-						<form:radiobutton path="priority" class="ml-3" name="priority" placeholder="Priority" />
-						<form:radiobutton path="priority" class="ml-3" name="priority" placeholder="Priority" /></span>
-						<span class="focus-input100" data-placeholder="P"></span>
+							<form:radiobutton path="priority" class="ml-3" value="h" />
+							<form:radiobutton path="priority" class="ml-3" value="l" />
+						</span>
+						<span class="focus-input100" data-placeholder=""></span>
 					</div>
 					<div class="container">
 						<div class="row">
