@@ -243,12 +243,26 @@ iframe {
   font-size: 20px;
   color: #555555;
   line-height: 1.2;
-
   display: block;
   width: 100%;
   height: 50px;
   background: transparent;
   padding: 0 10px 0 80px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.input100-edt {
+  font-family: Ubuntu-Regular;
+  font-size: 20px;
+  color: #555555;
+  line-height: 1;
+  display: block;
+  height: 40px;
+  background: transparent;
+  padding: 0 10px 0 25px;
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
@@ -318,6 +332,10 @@ iframe {
 
 .input100:focus {
   padding-left: 60px;
+}
+
+.input100-edt:focus {
+  padding-left: 20px;
 }
 
 .input100:focus + .focus-input100::after {

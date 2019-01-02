@@ -36,22 +36,18 @@
 				</span>
 				<form:form action="${pageContext.request.contextPath}/home/save-note" method="POST" modelAttribute="note" class="login100-form validate-form p-b-33 p-t-5">
 					<div class="wrap-input100 validate-input" >
-						<form:input path="title" class="input100" type="text"  placeholder="Title"/>
-						<form:errors path="title" class="ml-5 help-block text-danger small"/>
-						<span class="focus-input100" data-placeholder="">
-						</span>
+						<form:input path="title" class="input100-edt" type="text"  placeholder="Title"/>
+						<form:errors path="title" class="ml-4 help-block text-danger small"/>
 					</div>
 					<div class="wrap-input100 validate-input" >
-						<form:textarea path="content" class="input100" type="text" placeholder="Content"/>
-						<form:errors path="content" class="ml-5 help-block text-danger small"/>
-						<span class="focus-input100" data-placeholder=""></span>
+						<form:textarea path="content" class="input100-edt" type="text" placeholder="Content"/>
+						<form:errors path="content" class="ml-4 help-block text-danger small"/>
 					</div>
 					<div class="wrap-input100 validate-input" >
-						<span class="input100">Set high/low priority
+						<span class="input100-edt">Set high/low priority
 							<form:radiobutton path="priority" class="ml-3" value="h" />
 							<form:radiobutton path="priority" class="ml-3" value="l" />
 						</span>
-						<span class="focus-input100" data-placeholder=""></span>
 					</div>
 					<div class="container">
 						<div class="row">

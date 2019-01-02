@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.jaworskimateusz.entity.User;
 import com.jaworskimateusz.service.UserService;
 
 
@@ -23,8 +24,9 @@ public class LoginController {
 	
 	@GetMapping("/home")
 	public String showHomePage(HttpServletRequest request, HttpSession session) {
-		session.setAttribute("user", userService.findByName(request.getRemoteUser()));
-		return "home";
+		User user = userService.findByName(request.getRemoteUser());
+		session.setAttribute("user", user);
+		return user == null ? "login" : "home";
 	}
 	
 	@GetMapping("/access-denied")
