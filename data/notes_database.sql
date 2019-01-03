@@ -38,10 +38,10 @@ CREATE TABLE `notes` (
 
 INSERT INTO `notes` (title, content, modification_date, priority, user_id)
 VALUES 
-('Do the workout', 'Chest, shoulders, back...', now(), null, 1),
+('Do the workout', 'Chest, shoulders, back...', now(), 'high', 1),
 ('Diet', 'My diet for chrismas is 3300 kcal per day, 180 grams of protein', now(), null, 1),
-('Java', 'Spend more time for programming', now(), 'high', 1),
-('New year', 'Start preparing home for last 2018 party', now(), 'high', 1);
+('Java', 'Spend more time for programming', now(), null, 1),
+('New year', 'Start preparing home for last 2018 party', now(), null, 1);
 
 DROP TABLE IF EXISTS `roles`;
 

@@ -68,9 +68,9 @@
 	           <img class="card-img-top" src="${pageContext.request.contextPath}/resources/img/note-bg.jpg" alt="note-img">
 	            <div class="card-body">
 	             <h3 class="card-title">
-	             	<c:if test="${note.priority == 'high'}">
+	      	     	<c:if test="${note.priority == 'high'}">
 	        			<i class="far fa-star float-right"></i>
-	        		</c:if>
+	        		</c:if>  
 	        		${note.title} 
 	             </h3>
 	             <p class=" mt-1 card-text"> ${note.content} </p>

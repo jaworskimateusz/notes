@@ -44,8 +44,8 @@
 						<form:errors path="content" class="ml-4 help-block text-danger small"/>
 					</div>
 					<div class="wrap-input100 validate-input" >
-						<span class="input100-edt">Set high priority
-							<form:radiobutton path="priority" class="ml-3" value="high" />
+						<span class="input100-edt"> Set high priority
+							<form:checkbox path="priority" class="ml-3" value="high" />
 						</span>
 					</div>
 					<div class="container">

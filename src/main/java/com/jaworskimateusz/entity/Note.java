@@ -71,7 +71,7 @@ public class Note {
 	public void setModificationDate(Date modificationDate) {
 		this.modificationDate = modificationDate;
 	}
-
+	
 	public String getPriority() {
 		return priority;
 	}

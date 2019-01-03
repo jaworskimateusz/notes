@@ -33,12 +33,8 @@ public class NoteServiceImpl implements NoteService {
 	private void setNoteProperties(Note note, NewNote newNote) {
 		note.setTitle(newNote.getTitle());
 		note.setContent(newNote.getContent());
-		note.setPriority(checkPriority(newNote));
+		note.setPriority(newNote.getPriority());
 		note.setModificationDate(getCuttentDate());
-	}
-	
-	private String checkPriority(NewNote newNote) {
-		return newNote.getPriority() != null ? "high" : null;
 	}
 
 	private Date getCuttentDate() {
