@@ -29,6 +29,12 @@ public class NoteController {
 		return "update-note";
 	}
 	
+	@GetMapping("/update-note")
+	public String updateNote(@RequestParam("noteId") int noteId, Model model) {
+		model.addAttribute("note", noteService.getNote(noteId));
+		return "update-note";
+	}
+	
 	@PostMapping("/save-note")
 	public String saveNote(@Valid @ModelAttribute("note") NewNote note, 
 			BindingResult bindingResult,

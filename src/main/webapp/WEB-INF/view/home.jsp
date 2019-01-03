@@ -57,7 +57,7 @@
 	</button>
 	    <div class="row">
 	   	<c:forEach var="note" items="${user.notes}">
-			<c:url var="updateNote" value="/home/edit-note">
+			<c:url var="updateNote" value="/home/update-note">
 				<c:param name="noteId" value="${note.id}" />
 			</c:url>	
 			<c:url var="deleteNote" value="/home/delete-note">
@@ -73,15 +73,16 @@
 	        		</c:if>
 	        		${note.title} 
 	             </h3>
-	             
 	             <p class=" mt-1 card-text"> ${note.content} </p>
-	             
 	           </div>
 	           <div class="row">
-	           
-	           <a href="${editNote}" class="ml-3 mb-2 col-sm-1"><i class="fas fa-edit"></i></a>
-	           <a href="${deleteNote}" class="ml-3 mb-2 col-sm-1" onclick="loaction.reload()" ><i class="fas fa-trash-alt"></i></a>
-	           <span class="small col row justify-content-end mr-1">${note.modificationDate}</span>
+		           <span class="ml-3 mb-2 col-sm-1">
+		           		<a href="${updateNote}" ><i class="fas fa-edit"></i></a>
+		           </span>
+		           <span class="mb-2 col-sm-3">
+		          		<a href="${deleteNote}" class=" mb-2 col-sm-1" onclick="loaction.reload()" ><i class="fas fa-trash-alt"></i></a>
+		           </span>
+		           <span class="small col row justify-content-end mr-1">${note.modificationDate}</span>
 	           </div>
 	         </div>
 	       </div>

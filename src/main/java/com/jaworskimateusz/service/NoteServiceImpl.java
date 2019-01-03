@@ -27,7 +27,6 @@ public class NoteServiceImpl implements NoteService {
 		Note note = new Note();
 		setNoteProperties(note, newNote);
 		note.setUser(userService.findByName(request.getRemoteUser()));
-		System.out.println(note.getModificationDate());
 		noteDao.saveNote(note);
 	}
 
