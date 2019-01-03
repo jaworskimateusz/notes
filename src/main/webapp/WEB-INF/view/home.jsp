@@ -68,16 +68,20 @@
 	           <img class="card-img-top" src="${pageContext.request.contextPath}/resources/img/note-bg.jpg" alt="note-img">
 	            <div class="card-body">
 	             <h3 class="card-title">
-	             	<c:if test="${note.priority == 'h'}">
+	             	<c:if test="${note.priority == 'high'}">
 	        			<i class="far fa-star float-right"></i>
 	        		</c:if>
 	        		${note.title} 
 	             </h3>
-	             <p class="card-text"> ${note.content} </p>
+	             
+	             <p class=" mt-1 card-text"> ${note.content} </p>
+	             
 	           </div>
 	           <div class="row">
+	           
 	           <a href="${editNote}" class="ml-3 mb-2 col-sm-1"><i class="fas fa-edit"></i></a>
-	           <a href="${deleteNote}" class=" ml-2 mb-2 col-sm-1" onclick="loaction.reload()" ><i class="fas fa-trash-alt"></i></a>
+	           <a href="${deleteNote}" class="ml-3 mb-2 col-sm-1" onclick="loaction.reload()" ><i class="fas fa-trash-alt"></i></a>
+	           <span class="small col row justify-content-end mr-1">${note.modificationDate}</span>
 	           </div>
 	         </div>
 	       </div>

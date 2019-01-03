@@ -1,6 +1,6 @@
 package com.jaworskimateusz.entity;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,7 +28,7 @@ public class Note {
 	private String content;
 	
 	@Column(name="modification_date")
-	private Timestamp modificationDate;
+	private Date modificationDate;
 	
 	@Column(name="priority")
 	private String priority;
@@ -63,12 +63,12 @@ public class Note {
 	public void setContent(String content) {
 		this.content = content;
 	}
-
-	public Timestamp getModificationDate() {
+	
+	public Date getModificationDate() {
 		return modificationDate;
 	}
 
-	public void setModificationDate(Timestamp modificationDate) {
+	public void setModificationDate(Date modificationDate) {
 		this.modificationDate = modificationDate;
 	}
 

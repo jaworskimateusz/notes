@@ -26,8 +26,8 @@ CREATE TABLE `notes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `content` TEXT NOT NULL,
-  `modification_date` TIMESTAMP NOT NULL,
-  `priority` varchar(1) DEFAULT NULL,
+  `modification_date` DATE NOT NULL,
+  `priority` varchar(4) DEFAULT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_USER_idx` (`user_id`),
@@ -40,8 +40,8 @@ INSERT INTO `notes` (title, content, modification_date, priority, user_id)
 VALUES 
 ('Do the workout', 'Chest, shoulders, back...', now(), null, 1),
 ('Diet', 'My diet for chrismas is 3300 kcal per day, 180 grams of protein', now(), null, 1),
-('Java', 'Spend more time for programming', now(), null, 1),
-('New year', 'Start preparing home for last 2018 party', now(), null, 1);
+('Java', 'Spend more time for programming', now(), 'high', 1),
+('New year', 'Start preparing home for last 2018 party', now(), 'high', 1);
 
 DROP TABLE IF EXISTS `roles`;
 

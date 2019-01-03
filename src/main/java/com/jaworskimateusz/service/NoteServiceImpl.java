@@ -1,6 +1,6 @@
 package com.jaworskimateusz.service;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -34,12 +34,16 @@ public class NoteServiceImpl implements NoteService {
 	private void setNoteProperties(Note note, NewNote newNote) {
 		note.setTitle(newNote.getTitle());
 		note.setContent(newNote.getContent());
-		note.setPriority(newNote.getPriority());
+		note.setPriority(checkPriority(newNote));
 		note.setModificationDate(getCuttentDate());
 	}
+	
+	private String checkPriority(NewNote newNote) {
+		return newNote.getPriority() != null ? "high" : null;
+	}
 
-	private Timestamp getCuttentDate() {
-		return new Timestamp(System.currentTimeMillis());
+	private Date getCuttentDate() {
+		return new Date(System.currentTimeMillis());
 	}
 
 	@Override

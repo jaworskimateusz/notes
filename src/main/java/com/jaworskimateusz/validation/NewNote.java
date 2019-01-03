@@ -36,7 +36,7 @@ public class NewNote {
 	public void setContent(String content) {
 		this.content = content;
 	}
-
+	
 	public String getPriority() {
 		return priority;
 	}
