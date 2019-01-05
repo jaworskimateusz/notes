@@ -58,10 +58,10 @@
 	    <div class="row">
 	   	<c:forEach var="note" items="${user.notes}">
 			<c:url var="updateNote" value="/home/update-note">
-				<c:param name="noteId" value="${note.id}" />
+				<c:param name="noteId" value="${note.noteId}" />
 			</c:url>	
 			<c:url var="deleteNote" value="/home/delete-note">
-				<c:param name="noteId" value="${note.id}" />
+				<c:param name="noteId" value="${note.noteId}" />
 			</c:url>	       
 	       <div class="col-lg-4 col-sm-6 my-2">
 	         <div class="card h-100">
@@ -82,7 +82,7 @@
 		           <span class="mb-2 col-sm-3">
 		          		<a href="${deleteNote}" class=" mb-2 col-sm-1" onclick="loaction.reload()" ><i class="fas fa-trash-alt"></i></a>
 		           </span>
-		           <span class="small col row justify-content-end mr-1">${note.modificationDate}</span>
+		           <span class="small col row justify-content-end mr-2">${note.modificationDate}</span>
 	           </div>
 	         </div>
 	       </div>

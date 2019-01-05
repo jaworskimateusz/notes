@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jaworskimateusz.dao.NoteDao;
+import com.jaworskimateusz.dao.UserDao;
 import com.jaworskimateusz.entity.Note;
-import com.jaworskimateusz.validation.NewNote;
 
 @Service
 public class NoteServiceImpl implements NoteService {
@@ -19,22 +19,14 @@ public class NoteServiceImpl implements NoteService {
 	private NoteDao noteDao;
 	
 	@Autowired 
-	private UserService userService;
+	private UserDao userDao;
 	
 	@Override
 	@Transactional
-	public void saveNote(NewNote newNote, HttpServletRequest request) {
-		Note note = new Note();
-		setNoteProperties(note, newNote);
-		note.setUser(userService.findByName(request.getRemoteUser()));
-		noteDao.saveNote(note);
-	}
-
-	private void setNoteProperties(Note note, NewNote newNote) {
-		note.setTitle(newNote.getTitle());
-		note.setContent(newNote.getContent());
-		note.setPriority(newNote.getPriority());
+	public void saveNote(Note note, HttpServletRequest request) {
+		note.setUser(userDao.findByName(request.getRemoteUser()));
 		note.setModificationDate(getCuttentDate());
+		noteDao.saveNote(note);
 	}
 
 	private Date getCuttentDate() {

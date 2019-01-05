@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="notes")
@@ -18,12 +20,18 @@ public class Note {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
-	private int id;
+	@Column(name="note_id")
+	private int noteId;
 	
+	@NotNull
+	@Size(min = 1, message = "Required.")
+	@Size(max = 255, message= "Maximum title length is 255.")
 	@Column(name="title")
 	private String title;
 	
+	@NotNull
+	@Size(min = 1 , message = "Required.")
+	@Size(max = 65534, message = "This note is to long.")
 	@Column(name="content")
 	private String content;
 	
@@ -39,13 +47,13 @@ public class Note {
 	
 	public Note() {
 	}
-
-	public int getId() {
-		return id;
+	
+	public int getNoteId() {
+		return noteId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setNoteId(int noteId) {
+		this.noteId = noteId;
 	}
 
 	public String getTitle() {
@@ -90,7 +98,7 @@ public class Note {
 
 	@Override
 	public String toString() {
-		return "Note [id=" + id + ", title=" + title + ", content=" + content + ", modificationDate=" + modificationDate
+		return "Note [noteId=" + noteId + ", title=" + title + ", content=" + content + ", modificationDate=" + modificationDate
 				+ ", priority=" + priority + ", user=" + user + "]";
 	}
 

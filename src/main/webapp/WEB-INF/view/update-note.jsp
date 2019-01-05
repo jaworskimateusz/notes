@@ -35,6 +35,7 @@
 				Add/Edit note
 				</span>
 				<form:form action="${pageContext.request.contextPath}/home/save-note" method="POST" modelAttribute="note" class="login100-form validate-form p-b-33 p-t-5">
+					<form:hidden path="noteId" />
 					<div class="wrap-input100 validate-input" >
 						<form:input path="title" class="input100-edt" type="text"  placeholder="Title"/>
 						<form:errors path="title" class="ml-4 help-block text-danger small"/>

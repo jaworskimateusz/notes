@@ -15,6 +15,7 @@ CREATE TABLE `users` (
 
 -- password: mateusz
 -- password: donjoe
+
 INSERT INTO `users` (username, email, password)
 VALUES 
 ('mateusz','mateusz@email.com', '$2a$10$wnTAd4mvHizJnqPGVAJZJ.AT193MeEnrX1NuftHZl5scly43tHSlu'),
@@ -23,13 +24,13 @@ VALUES
 DROP TABLE IF EXISTS `notes`;
 
 CREATE TABLE `notes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `note_id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `content` TEXT NOT NULL,
   `modification_date` DATE NOT NULL,
   `priority` varchar(4) DEFAULT NULL,
   `user_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`note_id`),
   KEY `FK_USER_idx` (`user_id`),
   CONSTRAINT `FK_USER`
   FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)

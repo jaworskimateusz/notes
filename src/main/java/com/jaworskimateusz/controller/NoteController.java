@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.jaworskimateusz.entity.Note;
 import com.jaworskimateusz.service.NoteService;
-import com.jaworskimateusz.validation.NewNote;
 
 @Controller
 @RequestMapping("/home")
@@ -25,7 +25,7 @@ public class NoteController {
 	
 	@GetMapping("/add-note")
 	public String showFormForAdd(Model model) {
-		model.addAttribute("note", new NewNote());
+		model.addAttribute("note", new Note());
 		return "update-note";
 	}
 	
@@ -36,7 +36,7 @@ public class NoteController {
 	}
 	
 	@PostMapping("/save-note")
-	public String saveNote(@Valid @ModelAttribute("note") NewNote note, 
+	public String saveNote(@Valid @ModelAttribute("note") Note note, 
 			BindingResult bindingResult,
 			Model model,
 			HttpServletRequest request) {
