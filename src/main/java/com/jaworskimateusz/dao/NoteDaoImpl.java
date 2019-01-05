@@ -15,7 +15,7 @@ public class NoteDaoImpl implements NoteDao {
 	
 	@Override
 	public void saveNote(Note note) {
-		sessionFactory.getCurrentSession().merge(note);
+		sessionFactory.getCurrentSession().merge(note); 
 	}
 
 	@Override
