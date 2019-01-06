@@ -1,6 +1,9 @@
 package com.jaworskimateusz.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jaworskimateusz.entity.Note;
+import com.jaworskimateusz.entity.User;
 import com.jaworskimateusz.service.NoteService;
+import com.jaworskimateusz.service.UserService;
 
 @Controller
 @RequestMapping("/home")
@@ -22,6 +27,9 @@ public class NoteController {
 	
 	@Autowired
 	private NoteService noteService;
+	
+	@Autowired
+	private UserService userService;
 	
 	@GetMapping("/add-note")
 	public String showFormForAdd(Model model) {
@@ -51,6 +59,17 @@ public class NoteController {
 	public String deleteNote(@RequestParam("noteId") int noteId) {
 		noteService.deleteNote(noteId);
 		return "redirect:/home";
+	}
+	
+	@PostMapping("/search-note") 
+	public String searchNote(@RequestParam("searchInput") String searchingTitle, 
+			HttpServletRequest request,
+			HttpSession session) {
+		List<Note> notes = noteService.searchNotes(searchingTitle);
+		User user = userService.findByName(request.getRemoteUser());
+		user.setNotes(notes);
+		session.setAttribute("user", user);
+		return "home";
 	}
 
 }

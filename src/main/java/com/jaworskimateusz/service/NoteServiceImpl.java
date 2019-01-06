@@ -1,6 +1,7 @@
 package com.jaworskimateusz.service;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -43,6 +44,12 @@ public class NoteServiceImpl implements NoteService {
 	@Transactional
 	public void deleteNote(int noteId) {
 		noteDao.deleteNote(noteId);
+	}
+
+	@Override
+	@Transactional
+	public List<Note> searchNotes(String searchingTitle) {
+		return noteDao.searchNotes(searchingTitle);
 	}
 
 }

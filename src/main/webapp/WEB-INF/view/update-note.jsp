@@ -25,11 +25,6 @@
 	
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('${pageContext.request.contextPath}/resources/img/login-bg.jpg');">
-			<div class="fixed-top pt-3 ml-3">
-				<a class=" btn btn-outline-secondary" href="index">
-					<img src="${pageContext.request.contextPath}/resources/img/pen-icon.png"/>
-				</a>
-			</div>
 			<div class="wrap-login100 p-t-30 p-b-50">
 				<span class="login100-form-title p-b-41">
 				Add/Edit note

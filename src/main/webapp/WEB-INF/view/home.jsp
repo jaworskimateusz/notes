@@ -30,7 +30,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
       <div class="container">
-       	  <a class="navbar-brand btn btn-outline-secondary rounded" href="home">
+       	  <a class="navbar-brand btn btn-outline-secondary rounded" href="${pageContext.request.contextPath}/home">
 			<img src="${pageContext.request.contextPath}/resources/img/pen-icon-black.png"/>
 		  </a>
           <button class="btn-small navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,10 +52,23 @@
     <div class="container mt-5"> <br>
     <h1 class="my-3">Home Page</h1>    
 	<h2 class="mb-3">Welcome ${user.userName}, Let's make some notes!</h2>
-	<button class="btn btn-outline-dark rounded mb-3" onclick="location.href='${pageContext.request.contextPath}/home/add-note'"> 
-		Add new <i class=" ml-2 fas fa-plus"></i>
-	</button>
+	<div class="row mb-3"> 
+		<button class="ml-3 mt-2 btn btn-outline-dark rounded" onclick="location.href='${pageContext.request.contextPath}/home/add-note'"> 
+			Add new <i class="ml-2 fas fa-plus"></i>
+		</button>
+		<form:form action="${pageContext.request.contextPath}/home/search-note" method="POST" class="mt-2 col row justify-content-end">
+			<input type="text" name="searchInput" class="pl-2" placeholder="Search..." />
+			<button type="submit" class="btn btn-outline-dark rounded-right" >
+				<i class="fas fa-search"></i>
+			</button>
+		</form:form>
+	</div>
 	    <div class="row">
+	    <c:if test="${empty user.notes}">
+		    <p class="col row justify-content-center">
+		   		No suitable notes found. <i class="ml-2 mt-1 fas fa-exclamation-circle"></i>
+		    </p>
+	     </c:if>
 	   	<c:forEach var="note" items="${user.notes}">
 			<c:url var="updateNote" value="/home/update-note">
 				<c:param name="noteId" value="${note.noteId}" />
