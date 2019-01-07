@@ -1,6 +1,8 @@
 package com.jaworskimateusz.controller;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -61,7 +63,7 @@ public class NoteController {
 		return "redirect:/home";
 	}
 	
-	@PostMapping("/search-note") 
+	@PostMapping("/search-notes") 
 	public String searchNote(@RequestParam("searchInput") String searchingTitle, 
 			HttpServletRequest request,
 			HttpSession session) {
@@ -70,6 +72,27 @@ public class NoteController {
 		user.setNotes(notes);
 		session.setAttribute("user", user);
 		return "home";
+	}
+	
+	@PostMapping("/order-notes")
+	public String orderNotes(@RequestParam String sequence, 
+			HttpServletRequest request,
+			HttpSession session) {
+		User user = userService.findByName(request.getRemoteUser());
+		user.setNotes(sortNotes(user.getNotes(), sequence));
+		session.setAttribute("user", user);
+		return "home";
+	}
+
+	private List<Note> sortNotes(List<Note> unorderedNotes, String sequence) {
+		if (sequence.split(" ")[1] == "priority")
+			return sequence.startsWith("Ascending") 
+				? unorderedNotes.stream().sorted(Comparator.comparing(Note::getPriority)).collect(Collectors.toList())
+				: unorderedNotes.stream().sorted(Comparator.comparing(Note::getPriority).reversed()).collect(Collectors.toList());
+		else
+			return sequence.startsWith("Ascending")
+				? unorderedNotes.stream().sorted(Comparator.comparing(Note::getModificationDate)).collect(Collectors.toList())
+				: unorderedNotes.stream().sorted(Comparator.comparing(Note::getModificationDate).reversed()).collect(Collectors.toList());
 	}
 
 }

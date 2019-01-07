@@ -56,13 +56,26 @@
 		<button class="ml-3 mt-2 btn btn-outline-dark rounded" onclick="location.href='${pageContext.request.contextPath}/home/add-note'"> 
 			Add new <i class="ml-2 fas fa-plus"></i>
 		</button>
-		<form:form action="${pageContext.request.contextPath}/home/search-note" method="POST" class="mt-2 col row justify-content-end">
+		<form:form action="${pageContext.request.contextPath}/home/search-notes" method="POST" class="mt-2 col row justify-content-end">
 			<input type="text" name="searchInput" class="pl-2" placeholder="Search..." />
 			<button type="submit" class="btn btn-outline-dark rounded-right" >
 				<i class="fas fa-search"></i>
 			</button>
 		</form:form>
 	</div>
+		<div class="dropdown row justify-content-end mt-2 mb-2">
+		  <button class="btn btn-outline-dark rounded dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		    Sort by
+		  </button>
+		  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			  <form:form action="${pageContext.request.contextPath}/home/order-notes" method="POST">
+			    <input type="submit"  class="dropdown-item" value="Ascending date" name="sequence"/>
+			    <input type="submit"  class="dropdown-item" value="Descending date" name="sequence"/>
+			    <input type="submit"  class="dropdown-item" value="Ascending priority" name="sequence"/>
+			    <input type="submit"  class="dropdown-item" value="Descending priority" name="sequence"/>
+			  </form:form>
+		  </div>
+		</div>
 	    <div class="row">
 	    <c:if test="${empty user.notes}">
 		    <p class="col row justify-content-center">
