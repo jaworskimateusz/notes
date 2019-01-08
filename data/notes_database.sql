@@ -28,7 +28,7 @@ CREATE TABLE `notes` (
   `title` varchar(255) NOT NULL,
   `content` TEXT NOT NULL,
   `modification_date` DATE NOT NULL,
-  `priority` varchar(4) DEFAULT NULL,
+  `priority` varchar(4) DEFAULT 'low',
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`note_id`),
   KEY `FK_USER_idx` (`user_id`),
@@ -39,10 +39,10 @@ CREATE TABLE `notes` (
 
 INSERT INTO `notes` (title, content, modification_date, priority, user_id)
 VALUES 
-('Do the workout', 'Chest, shoulders, back...', now(), 'high', 1),
-('Diet', 'My diet for chrismas is 3300 kcal per day, 180 grams of protein', now(), null, 1),
-('Java', 'Spend more time for programming', now(), null, 1),
-('New year', 'Start preparing home for last 2018 party', now(), null, 1);
+('Workout', 'Chest, shoulders, back...', now(), 'high', 1),
+('Diet', 'My diet for chrismas is 3300 kcal per day, 180 grams of protein', '2019-01-01', 'low', 1),
+('Java', 'Spend more time for programming', '2019-01-05', 'low', 1),
+('Rest API', 'Gain your knowledge, learn about microservices.', now(), 'high', 1);
 
 DROP TABLE IF EXISTS `roles`;
 

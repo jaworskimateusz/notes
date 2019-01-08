@@ -85,14 +85,15 @@ public class NoteController {
 	}
 
 	private List<Note> sortNotes(List<Note> unorderedNotes, String sequence) {
-		if (sequence.split(" ")[1] == "priority")
+		if (sequence.split(" ")[1] == "priority") {
 			return sequence.startsWith("Ascending") 
-				? unorderedNotes.stream().sorted(Comparator.comparing(Note::getPriority)).collect(Collectors.toList())
-				: unorderedNotes.stream().sorted(Comparator.comparing(Note::getPriority).reversed()).collect(Collectors.toList());
-		else
+					? unorderedNotes.stream().sorted(Comparator.comparing(Note::getPriority)).collect(Collectors.toList())
+					: unorderedNotes.stream().sorted(Comparator.comparing(Note::getPriority).reversed()).collect(Collectors.toList());
+		} else {
 			return sequence.startsWith("Ascending")
 				? unorderedNotes.stream().sorted(Comparator.comparing(Note::getModificationDate)).collect(Collectors.toList())
 				: unorderedNotes.stream().sorted(Comparator.comparing(Note::getModificationDate).reversed()).collect(Collectors.toList());
+		}
 	}
 
 }

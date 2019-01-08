@@ -11,5 +11,5 @@ public interface UserService extends UserDetailsService{
 	public void save(NewUser newUser);
 		
 	public User findByName(String name);
-	
+
 }
