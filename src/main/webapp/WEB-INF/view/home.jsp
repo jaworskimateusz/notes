@@ -106,7 +106,7 @@
 		           		<a href="${updateNote}" ><i class="fas fa-edit"></i></a>
 		           </span>
 		           <span class="mb-2 col-sm-3">
-		          		<a href="${deleteNote}" class=" mb-2 col-sm-1" onclick="loaction.reload()" ><i class="fas fa-trash-alt"></i></a>
+		          		<a href="${deleteNote}" class=" mb-2 col-sm-1"><i class="fas fa-trash-alt"></i></a>
 		           </span>
 		           <span class="small col row justify-content-end mr-2">${note.modificationDate}</span>
 	           </div>

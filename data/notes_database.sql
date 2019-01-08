@@ -13,13 +13,9 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
--- password: mateusz
--- password: donjoe
-
 INSERT INTO `users` (username, email, password)
 VALUES 
-('mateusz','mateusz@email.com', '$2a$10$wnTAd4mvHizJnqPGVAJZJ.AT193MeEnrX1NuftHZl5scly43tHSlu'),
-('don', 'don.joe@email.com', '$2a$10$CNHBzKMUgLxzpyRDrX3nv.RAPBK89mx4uBi97Ve4cF9r9l8UBdLr2');
+('Mateusz','mateusz@email.com', '$2a$10$wnTAd4mvHizJnqPGVAJZJ.AT193MeEnrX1NuftHZl5scly43tHSlu');
 
 DROP TABLE IF EXISTS `notes`;
 
@@ -39,10 +35,11 @@ CREATE TABLE `notes` (
 
 INSERT INTO `notes` (title, content, modification_date, priority, user_id)
 VALUES 
-('Workout', 'Chest, shoulders, back...', now(), 'high', 1),
-('Diet', 'My diet for chrismas is 3300 kcal per day, 180 grams of protein', '2019-01-01', 'low', 1),
-('Java', 'Spend more time for programming', '2019-01-05', 'low', 1),
-('Rest API', 'Gain your knowledge, learn about microservices.', now(), 'high', 1);
+('Workout', 'Chest & shoulders progress with weights.', now(), 'high', 1),
+('Diet', 'My diet for chrismas is 3300 kcal per day, 180 grams of protein.', '2019-01-01', 'low', 1),
+('Java', 'Spend more time for programming.', '2019-01-05', 'low', 1),
+('Rest API', 'Gain your knowledge, learn about microservices.', now(), 'high', 1),
+('TDD', 'Find nice course, learn and write tests for application.', now(), 'high', 1);
 
 DROP TABLE IF EXISTS `roles`;
 
@@ -78,5 +75,4 @@ SET FOREIGN_KEY_CHECKS = 1;
 INSERT INTO `users_roles` (user_id,role_id)
 VALUES 
 (1, 1),
-(1, 2),
-(2, 1);
+(1, 2);
