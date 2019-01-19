@@ -46,10 +46,8 @@ public class NoteController {
 	}
 	
 	@PostMapping("/save-note")
-	public String saveNote(@Valid @ModelAttribute("note") Note note, 
-			BindingResult bindingResult,
-			Model model,
-			HttpServletRequest request) {
+	public String saveNote(@Valid @ModelAttribute("note") Note note, BindingResult bindingResult,
+			Model model, HttpServletRequest request) {
 		if(bindingResult.hasErrors()) {
 			return "update-note";
 		}

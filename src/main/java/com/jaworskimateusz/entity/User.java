@@ -16,8 +16,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="users")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
 
 	@Id
