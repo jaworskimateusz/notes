@@ -15,5 +15,7 @@ public interface NoteService {
 	public void deleteNote(int noteId);
 
 	public List<Note> searchNotes(String searchingTitle);
+
+	public List<Note> sortNotes(List<Note> notes, String sequence);
 	
 }

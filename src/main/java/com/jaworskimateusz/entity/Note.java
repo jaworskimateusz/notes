@@ -51,6 +51,13 @@ public class Note {
 	public Note() {
 	}
 	
+	public Note(String title, String content, Date modificationDate, String priority) {
+		this.title = title;
+		this.content = content;
+		this.modificationDate = modificationDate;
+		this.priority = priority;
+	}
+
 	public int getNoteId() {
 		return noteId;
 	}

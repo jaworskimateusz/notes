@@ -2,7 +2,6 @@ package com.jaworskimateusz.controller;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -14,7 +13,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.jaworskimateusz.config.ApplicationConfig;
 import com.jaworskimateusz.config.SecurityConfig;
-import com.jaworskimateusz.service.UserService;
+import com.jaworskimateusz.service.NoteService;
 
 import org.junit.runner.RunWith;
 import org.junit.Test;
@@ -22,30 +21,21 @@ import org.junit.Test;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {ApplicationConfig.class, SecurityConfig.class})
 @WebAppConfiguration
-@WebMvcTest(RegistrationController.class)
-public class RegistrationControllerTest {
+@WebMvcTest(NoteController.class)
+public class NoteControllerTest {
 
 	@Autowired
 	private MockMvc mockMvc;
 	
 	@MockBean
-    private UserService userService;
+    private NoteService noteService;
 	
 	@Test
-	public void showRegistrationPage() throws Exception {
-		mockMvc.perform(get("/registration"))    
+	public void showFormForAdd() throws Exception {
+		mockMvc.perform(get("/home/add-note"))    
 	      .andExpect(status().isOk())  
-	      .andExpect(view().name("registration"))
-	      .andExpect(model().attributeExists("newUser"));
+	      .andExpect(view().name("update-note"))
+	      .andExpect(model().attributeExists("note"));
 	}
 	
-	@Test
-	public void showProcessRegistration() throws Exception {
-		mockMvc.perform(post("/process-registration")
-				.with(csrf())
-	            .param("action", "signup")) 
-	      .andExpect(status().isOk())  
-	      .andExpect(view().name("login"));
-	}
-
 }

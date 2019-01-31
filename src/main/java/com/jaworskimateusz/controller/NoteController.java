@@ -1,8 +1,6 @@
 package com.jaworskimateusz.controller;
 
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -40,7 +38,7 @@ public class NoteController {
 	}
 	
 	@GetMapping("/update-note")
-	public String updateNote(@RequestParam("noteId") int noteId, Model model) {
+	public String updateNote(@RequestParam(value="noteId", required=false) int noteId, Model model) {
 		model.addAttribute("note", noteService.getNote(noteId));
 		return "update-note";
 	}
@@ -77,21 +75,8 @@ public class NoteController {
 			HttpServletRequest request,
 			HttpSession session) {
 		User user = userService.findByName(request.getRemoteUser());
-		user.setNotes(sortNotes(user.getNotes(), sequence));
+		user.setNotes(noteService.sortNotes(user.getNotes(), sequence));
 		session.setAttribute("user", user);
 		return "home";
 	}
-
-	private List<Note> sortNotes(List<Note> unorderedNotes, String sequence) {
-		if (sequence.split(" ")[1] == "priority") {
-			return sequence.startsWith("Ascending") 
-					? unorderedNotes.stream().sorted(Comparator.comparing(Note::getPriority)).collect(Collectors.toList())
-					: unorderedNotes.stream().sorted(Comparator.comparing(Note::getPriority).reversed()).collect(Collectors.toList());
-		} else {
-			return sequence.startsWith("Ascending")
-				? unorderedNotes.stream().sorted(Comparator.comparing(Note::getModificationDate)).collect(Collectors.toList())
-				: unorderedNotes.stream().sorted(Comparator.comparing(Note::getModificationDate).reversed()).collect(Collectors.toList());
-		}
-	}
-
 }

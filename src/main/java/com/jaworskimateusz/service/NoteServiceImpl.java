@@ -1,7 +1,10 @@
 package com.jaworskimateusz.service;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -51,5 +54,18 @@ public class NoteServiceImpl implements NoteService {
 	public List<Note> searchNotes(String searchingTitle) {
 		return noteDao.searchNotes(searchingTitle);
 	}
+
+	public List<Note> sortNotes(List<Note> unorderedNotes, String sequence) {
+		if (sequence.split(" ")[1] == "priority") {
+			return sequence.startsWith("Ascending") 
+					? unorderedNotes.stream().sorted(Comparator.comparing(Note::getPriority)).collect(Collectors.toCollection(ArrayList::new))
+					: unorderedNotes.stream().sorted(Comparator.comparing(Note::getPriority).reversed()).collect(Collectors.toCollection(ArrayList::new));
+		} else {
+			return sequence.startsWith("Ascending")
+				? unorderedNotes.stream().sorted(Comparator.comparing(Note::getModificationDate)).collect(Collectors.toCollection(ArrayList::new))
+				: unorderedNotes.stream().sorted(Comparator.comparing(Note::getModificationDate).reversed()).collect(Collectors.toCollection(ArrayList::new));
+		}
+	}
+
 
 }
