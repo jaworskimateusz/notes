@@ -1,16 +1,11 @@
 package com.jaworskimateusz.service;
 
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 import java.sql.Date;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -88,9 +83,62 @@ public class NoteServiceTest {
 				new Note("Fourth","D",new Date(2019,1,2),"high"),
 				new Note("Second","B",new Date(2019,1,3),"high"),
 				new Note("Third","C",new Date(2019,1,4),"low"));
-		System.out.println(actual);
-		System.out.println(expected);
-		assertNotEquals(expected, actual);
+		
+		for(int i = 0; i < actual.size(); i++) {
+			assertEquals(actual.get(i).getModificationDate(), expected.get(i).getModificationDate());
+		}
+	}
+	
+	@Test 
+	public void sortNotes_byDescendingDate() {
+		List<Note> actual = noteService.sortNotes(getNotesAsList(),"Descending date");
+		List<Note> expected = Arrays.asList(
+				new Note("Third","C",new Date(2019,1,4),"low"),
+				new Note("Second","B",new Date(2019,1,3),"high"),
+				new Note("Fourth","D",new Date(2019,1,2),"high"),
+				new Note("First","A",new Date(2019,1,1),"low"));
+		
+		for(int i = 0; i < actual.size(); i++) {
+			assertEquals(actual.get(i).getModificationDate(), expected.get(i).getModificationDate());
+		}
+	}
+
+	@Test 
+	public void sortNotes_byAscendingPriority() {
+		List<Note> actual = noteService.sortNotes(getNotesAsList(),"Ascending priority");
+		List<Note> expected = Arrays.asList(
+				new Note("Fourth","D",new Date(2019,1,2),"high"),
+				new Note("Second","B",new Date(2019,1,3),"high"),
+				new Note("First","A",new Date(2019,1,1),"low"),
+				new Note("Third","C",new Date(2019,1,4),"low"));
+
+		for(int i = 0; i < actual.size(); i++) {
+			assertEquals(actual.get(i).getPriority(), expected.get(i).getPriority());
+		}
+	}
+	
+	@Test 
+	public void sortNotes_byDescendingPriority() {
+		List<Note> actual = noteService.sortNotes(getNotesAsList(),"Descending priority");
+		List<Note> expected = Arrays.asList(
+				new Note("First","A",new Date(2019,1,1),"low"),
+				new Note("Third","C",new Date(2019,1,4),"low"),
+				new Note("Second","B",new Date(2019,1,3),"high"),
+				new Note("Fourth","D",new Date(2019,1,2),"high"));
+		
+		for(int i = 0; i < actual.size(); i++) {
+			assertEquals(actual.get(i).getPriority(), expected.get(i).getPriority());
+		}
+	}
+	
+	@Test 
+	public void sortNotes_emptyString() {
+		List<Note> actual = noteService.sortNotes(getNotesAsList()," ");
+		List<Note> expected = getNotesAsList();
+		
+		for(int i = 0; i < actual.size(); i++) {
+			assertEquals(actual.get(i).getTitle(), expected.get(i).getTitle());
+		}
 	}
 	
 	private List<Note> getNotesAsList() {
