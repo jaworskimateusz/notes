@@ -30,7 +30,7 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand" href="index">
-			<img src="${pageContext.request.contextPath}/resources/img/pen-icon.png"></i>
+			<img src="${pageContext.request.contextPath}/resources/img/pen-icon.png"/>
 			Notes
 		</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,10 +74,19 @@
     <!-- Main Content -->
     <div class="container">
       <div class="row">
+      	<span class="mt-2 profile_picture col-sm-2"></span>
+      	<p class="col-sm-10">
+      	I am the person who prefers The Slight Edge way of thinking. 
+      	I have dedicated my focus and passion on programming every single day. 
+      	Since then I have been systematically gaining knowledge and getting experience to fulfil my purpose of becoming a developer.
+      	</p>
         <div class="col-lg-8 col-md-10 mx-auto">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi aliquid ex itaque esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste neque sit tempora!</p>
+			<h2 class="fullname row justify-content-end mb-5"></h2>
+			<span class="username"></span>
+			<div class="col-lg-8 col-sm-10 my-2">
+	         <div class="cards mt-5">
+	         </div>
+	       </div>
         </div>
       </div>
     </div>
@@ -127,6 +136,10 @@
 
     <!-- Custom scripts for this template -->
     <script src="${pageContext.request.contextPath}/resources/js/clean-blog.min.js"></script>
+    
+    
+    <!-- Script for Instagram api -->
+    <script src="${pageContext.request.contextPath}/resources/js/instagram_api.js"></script>
 
   </body>
 
