@@ -20,7 +20,7 @@ which I was change, stylize, add new desirable components reading Bootstrap docu
 ##### Database
 * MySQL
 ##### TDD
-*JUnit & Mockito 
+* JUnit & Mockito 
 ##### Dependency Management, Server, IDE
 * Maven, Apache Tomcat, Eclipse
 ## Screenshoots
