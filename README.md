@@ -4,20 +4,23 @@ Spring &amp; Hibernate web application
 ## Description
 This web application was created in order to make notes and have quick access to them. You can create an account, login and start
 using. Inputs have validation. Users password are stored in the database protected by BCrypt algorithm. You can do CRUD operations on notes.
-There is a feature that allows you to sort your jottings by the priority and the date. In project I used bootstrap templates(links at the bottom), 
-which I was change, stylize, add new desirable components reading Bootstrap documentation. Background photographs was taken by myself. I used Adobe Photoshop to enhance them.
+There is a feature that allows you to sort your jottings by the priority and the date. There is one REST controller(using in Postman). In project I used bootstrap templates(links at the bottom), 
+which I was change, stylize, add new desirable components reading Bootstrap documentation. Background photographs was taken by myself. I used Adobe Photoshop to enhance them. Simple tests for application was written by JUnit and Mockito. To the 'about me' page, data was consumed from Instagram API.
 
 ## Technologies
 ##### Backend
-* Java
+* Java 8 
 * Spring MVC Framework
 * Hibernate
 ##### Frontend
 * HTML, CSS, JavaScript
+* jQuery (AJAX)
 * Bootstrap
 * JSP
 ##### Database
 * MySQL
+##### TDD
+*JUnit & Mockito 
 ##### Dependency Management, Server, IDE
 * Maven, Apache Tomcat, Eclipse
 ## Screenshoots
@@ -30,4 +33,3 @@ which I was change, stylize, add new desirable components reading Bootstrap docu
 * https://colorlib.com/wp/template/login-form-v16/ Template for login form
 * https://startbootstrap.com/template-overviews/clean-blog/ Template for other pages 
 
-###### More documentation after JUnit tests
