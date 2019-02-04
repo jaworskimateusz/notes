@@ -7,6 +7,8 @@ using. Inputs have validation. Users password are stored in the database protect
 There is a feature that allows you to sort your jottings by the priority and the date. There is one REST controller(using in Postman). In project I used bootstrap templates(links at the bottom), 
 which I was change, stylize, add new desirable components reading Bootstrap documentation. Background photographs was taken by myself. I used Adobe Photoshop to enhance them. Simple tests for application was written by JUnit and Mockito. To the 'about me' page, data was consumed from Instagram API.
 
+## Preview
+<a href="https://www.youtube.com/watch?v=epoKMVPPTzM&fbclid=IwAR1pYH1-xVS_N4sDg-pbgan6EzoA_qqwNr85sHX1ASfBVvhWFE2qffhoJuI" target="_blank">Watch</a>
 ## Technologies
 ##### Backend
 * Java 8 
