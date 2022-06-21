@@ -13,7 +13,7 @@
 		<springframework.version>5.1.1.RELEASE</springframework.version>
 		<springsecurity.version>5.1.1.RELEASE</springsecurity.version>
 		<c3p0.version>0.9.5.2</c3p0.version>
-		<mysql.connector.version>8.0.11</mysql.connector.version>
+		<mysql.connector.version>8.0.28</mysql.connector.version>
 		<hibernate.core.version>5.3.7.Final</hibernate.core.version>
 		<hibernate.validator.version>6.0.13.Final</hibernate.validator.version>
 		<java.servlet.jsp-api.version>2.3.1</java.servlet.jsp-api.version>
